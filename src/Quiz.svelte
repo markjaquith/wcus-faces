@@ -15,6 +15,7 @@ $: if (playing) {
 
 $: if (!playing) {
 	quizAttendees = []
+	showingName = false
 }
 
 function chooseRandomAttendee() {
