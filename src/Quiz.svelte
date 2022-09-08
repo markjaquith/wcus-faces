@@ -50,7 +50,7 @@ onMount(() => {
 </script>
 
 {#if !playing}
-	<p class="text-gray-500 my-4">Select some faces, then tap “Start Quiz”:</p>
+	<p class="text-gray-500 my-4">Select some faces, then tap “Start Quiz”.</p>
 
 	<ul class="flex flex-wrap">
 		{#each attendees as attendee}
