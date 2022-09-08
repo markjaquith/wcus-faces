@@ -7,5 +7,5 @@ import svelte from "@astrojs/svelte";
 export default defineConfig({
   integrations: [tailwind(), svelte()],
 	site: 'https://markjaquith.github.io',
-  base: '/wcus-people-quiz',
+  base: '/wcus-faces',
 });
