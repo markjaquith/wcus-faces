@@ -50,9 +50,7 @@ onMount(() => {
 </script>
 
 {#if !playing}
-	<p class="text-gray-500 mt-4">Select some people you’d like to be quizzed on, and then tap “Start Quiz”</p>
-
-	<Button on:click={() => playing = true} disabled={quizAttendees.length < 1}>Start Quiz{quizAttendees.length ? ` (${quizAttendees.length})` : ''}</Button>
+	<p class="text-gray-500 my-4">Select some faces, then tap “Start Quiz”:</p>
 
 	<ul class="flex flex-wrap">
 		{#each attendees as attendee}
@@ -61,24 +59,27 @@ onMount(() => {
 			</li>
 		{/each}
 	</ul>
-
-	<Button on:click={() => playing = true} disabled={quizAttendees.length < 1}>Start Quiz{quizAttendees.length ? ` (${quizAttendees.length})` : ''}</Button>
+	{#if quizAttendees.length}
+		<div class="floating-button">
+			<Button on:click={() => playing = true} disabled={quizAttendees.length < 1}>Start Quiz{quizAttendees.length ? ` (${quizAttendees.length})` : ''}</Button>
+		</div>
+	{/if}
 {/if}
 
 {#if playing && currentAttendee}
-	<Button on:click={() => playing = false}>Start Over</Button>
+	<Button on:click={() => playing = false}>Restart</Button>
 	<div>
 		<div>
 			<button on:click={advance} class="hover:cursor-hand">
-				<img width=512 height=512 class="block w-[512px] h-[512px]" alt={showingName ? currentAttendee.name : ''} src={currentAttendee.gravatar + '&s=512'} />
+				<img width=512 height=512 class="block w-[512px] h-auto" alt={showingName ? currentAttendee.name : ''} src={currentAttendee.gravatar + '&s=512'} />
 			</button>
 		</div>
 		{#if showingName}
-			<div class="font-bold">
+			<div class="font-bold text-xl">
 			{currentAttendee.name}
 			</div>
 			{#if currentAttendee.twitter}
-				<div>
+				<div class="text-lg text-gray-600">
 					@{currentAttendee.twitter}
 				</div>
 			{/if}
@@ -91,3 +92,12 @@ onMount(() => {
 		<img class="hidden" alt="" src={attendee.gravatar + '&s=512'} />
 	{/each}
 {/if}
+
+<style>
+.floating-button :global(button) {
+	position: fixed;
+	bottom: 1.5rem;
+	transform: translateX(-50%);
+	box-shadow: 0 0 75px 40px rgba(0, 0, 0, 0.75);
+}
+</style>
