@@ -1,4 +1,4 @@
-# WordCamp US 2022 Face Quiz
+# WordCamp US 2022 Faces
 
 It has been a while since we’ve done this. I’m really bad at remembering names.
 
