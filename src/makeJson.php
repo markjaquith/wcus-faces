@@ -28,9 +28,9 @@ foreach ($attendeesLis as $attendeeLi) {
 		// Grab the attendee Gravatar.
 		preg_match('# src="(.*?)"#', $attendeeLi, $attendeeGravatarMatches);
 
-		$gravatar = str_replace('s=96', 's=512', $attendeeGravatarMatches[1]);
+		$gravatar = str_replace('s=96', '', $attendeeGravatarMatches[1]);
 		$gravatar = str_replace('&#038;', '&', $gravatar);
-		$gravatar = str_replace('&d=mm&r=g', '', $gravatar);
+		$gravatar = str_replace('&d=mm&r=g', '&d=404&r=pg', $gravatar);
 
 		// Grab the attendee Twitter.
 		// Here is an example of the HTML: <a class="tix-field tix-attendee-twitter" href="http://twitter.com/AaronCampbell">@AaronCampbell</a>
