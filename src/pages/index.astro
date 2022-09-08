@@ -12,6 +12,6 @@ import attendees from '../attendees.json'
 
 		<p class="text-gray-500">Quiz yourself and learn people’s faces!</p>
 
-		<Quiz {attendees} client:only="svelte" />
+		<Quiz {attendees} client:load />
 	</div>
 </Layout>
